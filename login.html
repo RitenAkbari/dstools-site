@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — DS Consultancy</title>
+  <style>
+    :root{
+      --c1:#7B3B82; --c2:#8C4790; --c3:#9A4E96; --c4:#A857A0;
+      --c5:#B061A6; --c6:#BD6CAC; --c7:#C66AA7; --c8:#D176AF;
+      --c9:#D67AB0; --c10:#DF86B4; --c11:#E497B9; --c12:#EFA8C2;
+      --bg:#fafafa; --muted:#666; --card:#fff; --maxcontent:900px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,'Segoe UI',Arial;background:linear-gradient(180deg,#fff 0%,#fbfbfc 100%);color:#222}
+    .container{max-width:var(--maxcontent);margin:36px auto;padding:0 20px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo .box{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--c6),var(--c9));box-shadow:0 8px 28px rgba(182,64,132,0.12)}
+    .panel{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 18px 48px rgba(0,0,0,0.06)}
+    .panel h2{margin:0 0 8px 0}
+    .muted{color:var(--muted)}
+    form{margin-top:14px;display:grid;gap:12px}
+    input[type="text"], input[type="email"], input[type="password"]{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e7e7ea;font-size:15px}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:6px}
+    .btn-primary{padding:10px 16px;border-radius:10px;border:none;font-weight:700;background:linear-gradient(90deg,var(--c5),var(--c9));color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(198,106,167,0.18)}
+    .btn-ghost{padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer}
+    .small-note{font-size:13px;color:var(--muted);margin-top:6px}
+    .flash{padding:10px;border-radius:8px;margin-bottom:12px}
+    .flash.error{background:#ffecec;color:#b00020}
+    .flash.success{background:#e6ffef;color:#046b26}
+    @media (max-width:720px){.container{margin:18px auto;padding:0 14px}.panel{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo">
+        <div class="box" aria-hidden="true"></div>
+        DS Consultancy
+      </div>
+      <div>
+        <a href="/" style="text-decoration:none;color:var(--muted);font-weight:600;margin-right:12px">Home</a>
+        <a href="/signup" class="btn-ghost" style="text-decoration:none">Sign up</a>
+      </div>
+    </div>
+
+    <div class="panel" role="form" aria-labelledby="login-heading">
+      <h2 id="login-heading">Welcome back</h2>
+      <div class="muted">Sign in to access your DS Consultancy dashboard</div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div style="margin-top:12px">
+            {% for category, msg in messages %}
+              <div class="flash {{ 'error' if category == 'error' else 'success' }}">{{ msg }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" action="/login" novalidate>
+        <label>
+          <div style="font-weight:600;margin-bottom:6px">Email</div>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label>
+          <div style="font-weight:600;margin-bottom:6px">Password</div>
+          <input type="password" name="password" placeholder="Your password" required />
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary">Login</button>
+          <a href="/signup" class="btn-ghost" style="display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;color:#111">Create account</a>
+        </div>
+
+        <div class="small-note">By continuing you agree to our <a href="#" style="color:var(--c9)">terms</a>.</div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

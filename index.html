@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DS Consultancy — Full Width Layout</title>
+<style>
+    :root{
+      --c1:#7B3B82; --c2:#8C4790; --c3:#9A4E96; --c4:#A857A0;
+      --c5:#B061A6; --c6:#BD6CAC; --c7:#C66AA7; --c8:#D176AF;
+      --c9:#D67AB0; --c10:#DF86B4; --c11:#E497B9; --c12:#EFA8C2;
+      --bg:#fafafa; --muted:#666; --card:#fff; --maxcontent:1200px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Segoe UI', Roboto, Arial, sans-serif;background:var(--bg);color:#222}
+    header.site-header{width:100%;padding:18px 24px}
+    .inner{max-width:var(--maxcontent);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px}
+    .logo-box{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--c5),var(--c7));box-shadow:0 8px 24px rgba(184,78,128,0.18)}
+    .nav-actions a{ text-decoration:none; color:var(--muted); font-weight:600; margin-left:18px; }
+    .book-btn{ text-decoration:none; padding:8px 12px; border-radius:8px; background:linear-gradient(90deg,var(--c11),var(--c12)); box-shadow:0 6px 18px rgba(0,0,0,0.06); color:#111; }
+
+    .hero-wrap-full{width:100%;padding:32px 0}
+    .hero-panel{display:flex;justify-content:center;padding:18px 0}
+    .hero-inner{width:100%;max-width:var(--maxcontent);margin:0 20px;border-radius:14px;padding:36px 40px;background: linear-gradient(90deg,var(--c5), var(--c9));color:#fff; box-shadow:0 20px 50px rgba(0,0,0,0.09); text-align:center;}
+    .hero-title{margin:0;font-size:48px;font-weight:800;letter-spacing:-0.6px;line-height:1.05}
+    .hero-sub{margin-top:10px;font-size:16px;opacity:0.95;max-width:1000px;margin-left:auto;margin-right:auto}
+
+    main.site-main{width:100%;padding:28px 24px 80px}
+    main.site-main .inner{max-width:var(--maxcontent);margin:0 auto;display:block;gap:24px}
+    .cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:20px}
+    .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,0.06)}
+    .card h3{margin-top:0}
+    .big-card{margin-top:30px;background:var(--card);padding:34px;border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,0.06)}
+    @media (max-width:1100px){.hero-title{font-size:36px}.cards-row{grid-template-columns:1fr}}
+    @media (max-width:720px){.hero-inner{padding:22px;border-radius:10px}.hero-title{font-size:22px}header.site-header{padding:12px}main.site-main{padding:18px 12px 40px}}
+</style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true"></div>
+        DS Consultancy
+      </div>
+      <div class="nav-actions">
+        <a href="#">Templates</a>
+        <a href="#">Why DS</a>
+        <a href="#">Resources</a>
+        <a class="book-btn" href="/login">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-wrap-full" role="region" aria-label="Main hero">
+    <div class="hero-panel">
+      <div class="hero-inner">
+        <h1 class="hero-title">Flipkart's Returns Process Boosted by AI</h1>
+        <p class="hero-sub">We used colors from your image to make this big top panel. It looks like modern SaaS websites with a strong visual banner and clear message.</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main" role="main">
+    <div class="inner">
+      <div class="cards-row">
+        <div class="card">
+          <h3>Overview</h3>
+          <p>Flipkart faced problems in returns. Our solution improved accuracy, lowered costs and improved customer satisfaction. The card below the hero gives a white, readable space for long text.</p>
+        </div>
+
+        <div class="card">
+          <h3>Palette</h3>
+          <p><strong>Palette:</strong> var(--c1) … var(--c12)</p>
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="width:56px;height:56px;border-radius:8px;background:var(--c5)"></div>
+            <div style="width:56px;height:56px;border-radius:8px;background:var(--c7)"></div>
+            <div style="width:56px;height:56px;border-radius:8px;background:var(--c9)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-card">
+        <h2 style="margin-top:0;font-size:28px">Returns Process Gaps</h2>
+        <p style="color:var(--muted);line-height:1.6">The returns process in ecommerce operations is riddled with inefficiencies. Delivery staff often missed or overlooked product defects—sometimes unknowingly—when accepting items during exchanges. As a result, these faulty items get reintegrated into the supply chain, only to be flagged later during quality checks.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
